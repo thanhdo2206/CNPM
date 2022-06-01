@@ -46,9 +46,9 @@
                     <?php
                     $header_menu_pages = config('header_menu_pages');
                     ?>
-                    @if($header_menu_pages->count() > 0)
+                    @if(count($header_menu_pages) > 0)
                         @foreach($header_menu_pages as $page)
-                            <li class="nav-item"><a class="nav-link" href="{{ route('single_page', $page->slug) }}"><i class="la la-link"></i>{{ $page->title }} </a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('single_page', $page['slug']) }}"><i class="la la-link"></i>{{ $page['title'] }} </a></li>
                         @endforeach
                     @endif
 
@@ -127,9 +127,9 @@
                             <?php
                             $show_in_footer_menu = config('footer_menu_pages');
                             ?>
-                            @if($show_in_footer_menu->count() > 0)
+                            @if(count($show_in_footer_menu) > 0)
                                 @foreach($show_in_footer_menu as $page)
-                                    <li><a href="{{ route('single_page', $page->slug) }}">{{ $page->title }} </a></li>
+                                    <li><a href="{{ route('single_page', $page['slug']) }}">{{ $page['title'] }} </a></li>
                                 @endforeach
                             @endif
                             <li><a href="{{route('contact_us')}}">@lang('app.contact_us')</a> </li>

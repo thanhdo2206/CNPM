@@ -23,8 +23,8 @@ class AppServiceProvider extends ServiceProvider
             $options = Option::all()->pluck('option_value', 'option_key')->toArray();
             $allOptions = [];
             $allOptions['options'] = $options;
-            $allOptions['header_menu_pages'] = Post::whereStatus('1')->where('show_in_header_menu', 1)->get();
-            $allOptions['footer_menu_pages'] = Post::whereStatus('1')->where('show_in_footer_menu', 1)->get();
+            $allOptions['header_menu_pages'] = Post::whereStatus('1')->where('show_in_header_menu', 1)->get()->toArray();
+            $allOptions['footer_menu_pages'] = Post::whereStatus('1')->where('show_in_footer_menu', 1)->get()->toArray();
             config($allOptions);
 
             /**
