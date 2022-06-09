@@ -9,6 +9,7 @@
                 <tr>
                     <th>@lang('app.name')</th>
                     <th>@lang('app.employer')</th>
+                    <th>Status Apply</th>
                 </tr>
 
                 @foreach($applications as $application)
@@ -31,6 +32,11 @@
                                 <p>{{$application->job->employer->company}}</p>
                             @endif
                         </td>
+
+                        <td>
+                        {!! $application->statusApply_context() !!}
+                        </td>
+                        
 
                     </tr>
                 @endforeach

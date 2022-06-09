@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '588e31c35528f20c78f2c2d6299de7b1e29c176b',
+        'reference' => '28c88a27730dc01e23407b1b4d9ea7660d6b9bdc',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -355,7 +355,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '588e31c35528f20c78f2c2d6299de7b1e29c176b',
+            'reference' => '28c88a27730dc01e23407b1b4d9ea7660d6b9bdc',
             'dev_requirement' => false,
         ),
         'league/flysystem' => array(
@@ -622,8 +622,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0',
-                1 => '1.0.0',
+                0 => '1.0.0',
+                1 => '1.0|2.0',
             ),
         ),
         'psr/simple-cache' => array(

@@ -104,6 +104,7 @@ class JobController extends Controller
         return redirect(route('posted_jobs'))->with('success', __('app.job_posted_success'));
     }
 
+   
 
     public function postedJobs(){
         $title = __('app.posted_jobs');
@@ -202,6 +203,8 @@ class JobController extends Controller
                     'phone_number'          => $request->phone_number,
                     'message'               => $request->message,
                     'resume'                => $image_name,
+                    'statusApply'           => 0,
+                    
                 ];
                 JobApplication::create($application_data);
 

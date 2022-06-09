@@ -193,12 +193,12 @@ $user = Auth::user();
 
                             @endif
 
-                            <li class="{{request()->is('dashboard/payments*')? 'active' : ''}}">
+                            <!-- <li class="{{request()->is('dashboard/payments*')? 'active' : ''}}">
                                 <a href="{{route('payments')}}" class="list-group-item-action active">
                                     <span class="sidebar-icon"><i class="la la-money"></i> </span>
                                     <span class="title">@lang('app.payments')</span>
                                 </a>
-                            </li>
+                            </li> -->
 
                             @if($user->is_admin())
 

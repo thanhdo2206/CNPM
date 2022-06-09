@@ -38,7 +38,62 @@
 
     </div>
 
+    <!-- new job -->
+    @if($regular_jobs->count())
+        <div class="regular-jobs-wrap pb-5 pt-5">
 
+            <div class="container">
+                <div class="regular-job-container p-3">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 class="mb-3">@lang('app.new_jobs')</h4>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        @foreach($regular_jobs as $regular_job)
+                            <div class="col-md-4 mb-3">
+
+                                <div class="row">
+                                    <div class="col-md-12">
+
+                                        <p class="job-title m-0">
+                                            <a href="{{route('job_view', $regular_job->job_slug)}}">{!! $regular_job->job_title !!}</a>
+                                        </p>
+
+                                        <p class="text-muted  m-0">
+                                            <i class="la la-map-marker"></i>
+                                            @if($regular_job->city_name)
+                                                {!! $regular_job->city_name !!},
+                                            @endif
+                                            @if($regular_job->state_name)
+                                                {!! $regular_job->state_name !!},
+                                            @endif
+                                            @if($regular_job->state_name)
+                                                {!! $regular_job->country_name !!}
+                                            @endif
+                                        </p>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        @endforeach
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+    @endif
+
+    <!-- categories -->
     @if($categories->count())
         <div class="home-categories-wrap bg-white pb-5 pt-5">
             <div class="container">
@@ -135,7 +190,7 @@
     <div class="new-registration-page bg-white pb-5 pt-5">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="home-register-account-box">
                         <h4>@lang('app.job_seeker')</h4>
                         <p class="box-icon"><img src="{{asset('assets/images/employee.png')}}" /></p>
@@ -144,7 +199,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="home-register-account-box">
                         <h4>@lang('app.employer')</h4>
                         <p class="box-icon"><img src="{{asset('assets/images/enterprise.png')}}" /></p>
@@ -153,73 +208,22 @@
                     </div>
                 </div>
 
-                <div class="col-md-4">
+                <!-- <div class="col-md-4">
                     <div class="home-register-account-box">
                         <h4>@lang('app.agency')</h4>
                         <p class="box-icon"><img src="{{asset('assets/images/agent.png')}}" /></p>
                         <p>@lang('app.agency_new_desc')</p>
                         <a href="{{route('register_agent')}}" class="btn btn-success"><i class="la la-user-plus"></i> @lang('app.register_account') </a>
                     </div>
-                </div>
+                </div> -->
+
             </div>
         </div>
     </div>
 
-    @if($regular_jobs->count())
-        <div class="regular-jobs-wrap pb-5 pt-5">
+  
 
-            <div class="container">
-                <div class="regular-job-container p-3">
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h4 class="mb-3">@lang('app.new_jobs')</h4>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        @foreach($regular_jobs as $regular_job)
-                            <div class="col-md-4 mb-3">
-
-                                <div class="row">
-                                    <div class="col-md-12">
-
-                                        <p class="job-title m-0">
-                                            <a href="{{route('job_view', $regular_job->job_slug)}}">{!! $regular_job->job_title !!}</a>
-                                        </p>
-
-                                        <p class="text-muted  m-0">
-                                            <i class="la la-map-marker"></i>
-                                            @if($regular_job->city_name)
-                                                {!! $regular_job->city_name !!},
-                                            @endif
-                                            @if($regular_job->state_name)
-                                                {!! $regular_job->state_name !!},
-                                            @endif
-                                            @if($regular_job->state_name)
-                                                {!! $regular_job->country_name !!}
-                                            @endif
-                                        </p>
-
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        @endforeach
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-
-        </div>
-    @endif
-
-    <div class="pricing-section bg-white pb-5 pt-5">
+    <!-- <div class="pricing-section bg-white pb-5 pt-5">
         <div class="container">
 
             <div class="row">
@@ -274,13 +278,13 @@
             </div>
 
         </div>
-    </div>
+    </div> -->
 
 
 
 
 
-    <div class="home-blog-section pb-5 pt-5">
+    <!-- <div class="home-blog-section pb-5 pt-5">
         <div class="container">
 
             <div class="row">
@@ -340,7 +344,7 @@
 
 
         </div>
-    </div>
+    </div> -->
 
 
 

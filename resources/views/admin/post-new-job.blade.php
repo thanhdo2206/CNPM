@@ -213,16 +213,16 @@
                     </div>
                 </div>
 
-                <div class="form-group row {{ $errors->has('responsibilities')? 'has-error':'' }}">
+                <!-- <div class="form-group row {{ $errors->has('responsibilities')? 'has-error':'' }}">
                     <label class="col-sm-4 control-label"> @lang('app.responsibilities')</label>
                     <div class="col-sm-8">
                         <textarea name="responsibilities" class="form-control {{e_form_invalid_class('responsibilities', $errors)}}" rows="3">{{ old('responsibilities') }}</textarea>
                         {!! $errors->has('responsibilities')? '<p class="help-block">'.$errors->first('responsibilities').'</p>':'' !!}
                         <p class="text-info"> @lang('app.responsibilities_info_text')</p>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="form-group row {{ $errors->has('educational_requirements')? 'has-error':'' }}">
+                <!-- <div class="form-group row {{ $errors->has('educational_requirements')? 'has-error':'' }}">
                     <label class="col-sm-4 control-label"> @lang('app.educational_requirements')</label>
                     <div class="col-sm-8">
                         <textarea name="educational_requirements" class="form-control {{e_form_invalid_class('educational_requirements', $errors)}}" rows="3">{{ old('educational_requirements') }}</textarea>
@@ -248,7 +248,7 @@
                         {!! $errors->has('additional_requirements')? '<p class="help-block">'.$errors->first('additional_requirements').'</p>':'' !!}
                         <p class="text-info"> @lang('app.additional_requirements_info_text')</p>
                     </div>
-                </div>
+                </div> -->
 
 
                 <div class="form-group row {{ $errors->has('benefits')? 'has-error':'' }}">
@@ -261,14 +261,14 @@
                 </div>
 
 
-                <div class="form-group row {{ $errors->has('apply_instruction')? 'has-error':'' }}">
+                <!-- <div class="form-group row {{ $errors->has('apply_instruction')? 'has-error':'' }}">
                     <label class="col-sm-4 control-label"> @lang('app.apply_instruction')</label>
                     <div class="col-sm-8">
                         <textarea name="apply_instruction" class="form-control {{e_form_invalid_class('apply_instruction', $errors)}}" rows="3">{{ old('apply_instruction') }}</textarea>
                         {!! $errors->has('apply_instruction')? '<p class="help-block">'.$errors->first('apply_instruction').'</p>':'' !!}
                         <p class="text-info"> @lang('app.apply_instruction_info_text')</p>
                     </div>
-                </div>
+                </div> -->
 
                 <legend>@lang('app.job_location')</legend>
 
@@ -313,17 +313,17 @@
                     </div>
                 </div>
 
-                <div class="form-group row {{ $errors->has('city_name')? 'has-error':'' }}">
+                <!-- <div class="form-group row {{ $errors->has('city_name')? 'has-error':'' }}">
                     <label for="city_name" class="col-sm-4 control-label"> @lang('app.city_name')</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control {{e_form_invalid_class('city_name', $errors)}}" id="city_name" value="{{ old('city_name') }}" name="city_name" placeholder="@lang('app.city_name')">
 
                         {!! e_form_error('city_name', $errors) !!}
                     </div>
-                </div>
+                </div> -->
 
 
-                <div class="alert alert-warning">
+                <!-- <div class="alert alert-warning">
 
                     <legend>@lang('app.premium_job')</legend>
 
@@ -342,7 +342,7 @@
                         </div>
                     </div>
 
-                </div>
+                </div> -->
 
                 <div class="form-group row">
                     <label class="col-sm-4"></label>

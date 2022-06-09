@@ -93,6 +93,7 @@ Route::group(['prefix'=>'dashboard', 'middleware' => 'dashboard'], function(){
             Route::get('applicant', 'UserController@employerApplicant')->name('employer_applicant');
             Route::get('shortlisted', 'UserController@shortlistedApplicant')->name('shortlisted_applicant');
             Route::get('applicant/{application_id}/shortlist', 'UserController@makeShortList')->name('make_short_list');
+            Route::get('applicant/{application_id}/{statusApply}', 'UserController@statusApplyChange')->name('apllication_statusApply_change');
 
             Route::get('profile', 'UserController@employerProfile')->name('employer_profile');
             Route::post('profile', 'UserController@employerProfilePost');

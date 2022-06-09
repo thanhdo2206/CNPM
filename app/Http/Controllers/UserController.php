@@ -299,6 +299,22 @@ class UserController extends Controller
         return back()->with('success', __('app.success'));
     }
 
+    public function statusApplyChange($application_id, $statusApply){
+        $applicant = JobApplication::find($application_id);
+        // if (! $applicant->can_edit()){
+        //     return back()->with('error', __('app.permission_denied'));
+        // }
+
+        if ($statusApply == 'accept'){
+            $applicant->statusApply = 1;
+            $applicant->save();
+        }elseif ($statusApply == 'denied'){
+            $applicant->statusApply = 2;
+            $applicant->save();
+        }
+        return back()->with('success', __('app.success'));
+    }
+
     public function shortlistedApplicant(){
         $title = __('app.shortlisted');
         $employer_id = Auth::user()->id;

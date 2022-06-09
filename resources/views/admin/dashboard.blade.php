@@ -12,12 +12,12 @@
                 </div>
             </div>
 
-            <div class="col-md-3">
+            <!-- <div class="col-md-3">
                 <div class="p-3 mb-3 bg-warning">
                     <h4>Payments</h4>
                     <h5>{!! get_amount($totalPayments) !!}</h5>
                 </div>
-            </div>
+            </div> -->
 
             <div class="col-md-3">
                 <div class="p-3 mb-3 bg-light">
@@ -40,12 +40,12 @@
                 </div>
             </div>
 
-            <div class="col-md-3">
+            <!-- <div class="col-md-3">
                 <div class="p-3 mb-3 text-white bg-info">
                     <h4>Agent</h4>
                     <h5>{{$agentCount}}</h5>
                 </div>
-            </div>
+            </div> -->
 
             <div class="col-md-3">
                 <div class="p-3 mb-3 text-white bg-primary">
