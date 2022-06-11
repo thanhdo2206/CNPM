@@ -246,7 +246,7 @@ class JobController extends Controller
 
     public function pendingJobs(){
         $title = __('app.pending_jobs');
-        $jobs = Job::pending()->orderBy('id', 'desc')->paginate(20);
+        $jobs = Job::pending()->orderBy('id', 'desc')->paginate(20);        
         return view('admin.jobs', compact('title', 'jobs'));
     }
     public function approvedJobs(){

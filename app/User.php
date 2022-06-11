@@ -34,6 +34,11 @@ class User extends Authenticatable
     public function is_user(){
         return $this->user_type === 'user';
     }
+
+    public function is_applicant(){
+        return $this->user_type === 'applicant';
+    }
+
     public function is_admin(){
         return $this->user_type === 'admin';
     }

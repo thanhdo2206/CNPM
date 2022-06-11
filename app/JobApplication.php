@@ -32,4 +32,16 @@ class JobApplication extends Model
         }
         return $html;
     }
+
+    public function scopePending($query){
+        return $query->where('statusApply', '=', 0);
+    }
+
+    public function scopeAccept($query){
+        return $query->where('statusApply', '=', 1);
+    }
+
+    public function scopeDenied($query){
+        return $query->where('statusApply', '=', 2);
+    }
 }

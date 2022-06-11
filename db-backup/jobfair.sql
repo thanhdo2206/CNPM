@@ -435,7 +435,7 @@ CREATE TABLE `job_applications` (
 --
 
 INSERT INTO `job_applications` (`id`, `job_id`, `employer_id`, `user_id`, `name`, `email`, `phone_number`, `message`, `resume`, `is_shortlisted`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 4, 'Jhony Deep', 'jhony@demo.com', '112234354', 'Please check my resume', '1543343268ixhnt-test-resume-file.docx', NULL, '2018-11-27 12:27:48', '2018-11-27 12:27:48');
+(1, 1, 1, 4, 'Jhony Deep', 'jhony@demo.com', '112234354', 'Please check my resume', '1543343268ixhnt-test-resume-file.docx', NULL, '2022-06-10 12:27:48', '2022-06-10 12:27:48');
 
 
 -- --------------------------------------------------------
@@ -4821,7 +4821,7 @@ CREATE TABLE `users` (
   `website` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `phone` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `photo` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `user_type` enum('user','employer','agent','admin') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_type` enum('user','employer','agent','admin','applicant') COLLATE utf8mb4_unicode_ci NOT NULL,
   `company` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `company_slug` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `company_size` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -4842,7 +4842,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `co
 (1, 'John Doe', 'admin@demo.com', NULL, '$2y$10$uk0pVAxEhUelFpOCky4O9.I4yWGRbfTx3kPcbNJHp2NEiBHGLtTni', 231, 'United States', 3922, 'Arkansas', 'Bentonville', 'male', '702 SW 8th St, Bentonville, AR 72716, USA', NULL, 'https://www.walmart.com/', '+1 479-273-4000', NULL, 'admin', 'Walmart', 'walmart', 'H', 'Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur,', '1544382937dnupc-walmart.jpg', 16, 1, 'zY6jNOK4RTvTpq9Nd9E1FRVyC2h5xPI5LlIEpkRn7pHXEbhAisTJ6a4VENkI', '2018-12-08 15:33:31', '2018-12-09 13:15:37'),
 (2, 'Stephen King', 'stephen@demo.com', NULL, '$2y$10$KrY1rroERNyM7jN/t7XH4O1Wa2scYc6eIYDgYfskn.ABc3nJfyr.C', 231, 'United States', 3924, 'California', 'Mountain View', NULL, '1600 Amphitheatre Pkwy', NULL, NULL, '1223424345', NULL, 'employer', 'Google', 'google', 'A', NULL, '15443818091odcq-google.png', 2, 1, 'aBB69jjikN2rUtvOq64NGGaSTxP9pnvEx4MT8Zx726J9hpQgRZO8WKz3lB67', '2018-11-23 14:01:11', '2018-12-09 13:03:58'),
 (3, 'Arnold Craig', 'arnold@demo.com', NULL, '$2y$10$ede.pJvkTipdh/yUE/UAL.qmMSM5.UXAKlUp7XydNDN3MsdEzOKM.', 231, 'United States', 3975, 'Washington', 'Redmond', NULL, 'One Microsoft Way', NULL, 'https://microsoft.com', '12323435', NULL, 'employer', 'Microsoft', 'microsoft', 'F', NULL, '1543703058nsvoo-microsoft.png', 0, 1, 'XzMR8xdazUmJTc3JU7WvjqLE7bcOBwKbGAPgWMbpCsmFkvzpN9Y6gyahLSYt', '2018-11-23 14:04:49', '2018-12-01 16:24:18'),
-(4, 'De Stephano', 'stephano@demo.com', NULL, '$2y$10$E7NWtyZiGVakfO6752IMVe59BT/XKAtRRswIYKo6Fz40eH9h9FDYW', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'user', NULL, NULL, NULL, NULL, NULL, 0, 1, 'jzXi4jaHqn7QfYcf4Q5V7D4FYfluOrMq6Ls1qloFgoeZv2aYZ035ViTUqMaV', '2018-11-25 06:17:45', '2018-11-25 06:17:45'),
+(4, 'De Stephano', 'stephano@demo.com', NULL, '$2y$10$E7NWtyZiGVakfO6752IMVe59BT/XKAtRRswIYKo6Fz40eH9h9FDYW', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '123456', NULL, 'applicant', NULL, NULL, NULL, NULL, NULL, 0, 1, 'jzXi4jaHqn7QfYcf4Q5V7D4FYfluOrMq6Ls1qloFgoeZv2aYZ035ViTUqMaV', '2018-11-25 06:17:45', '2018-11-25 06:17:45'),
 (5, 'Apple', 'apple@demo.com', NULL, '$2y$10$C3UPhxwknyadz6bm8.SXk.gUAX1LWjCwdYuTcSc/kDbbyuuMrJIkS', 231, 'United States', 3924, 'California', 'Cupertino', NULL, 'One Apple Park Way', NULL, 'https://apple.com', '12334324545', NULL, 'employer', 'Apple', 'apple', 'A', NULL, '1543704173se5dg-apple.png', 0, 1, NULL, '2018-12-01 16:41:33', '2018-12-09 09:00:49');
 
 -- --------------------------------------------------------

@@ -7,7 +7,7 @@
             <table class="table table-bordered">
 
                 <tr>
-                    <th>@lang('app.name')</th>
+                    <th>Your Information</th>
                     <th>@lang('app.employer')</th>
                     <th>Status Apply</th>
                 </tr>
@@ -15,7 +15,7 @@
                 @foreach($applications as $application)
                     <tr>
                         <td>
-                            <i class="la la-user"></i> {{$application->name}}
+                            <!-- <i class="la la-user"></i> {{$application->name}} -->
                             <p class="text-muted"><i class="la la-clock-o"></i> {{$application->created_at->format(get_option('date_format'))}} {{$application->created_at->format(get_option('time_format'))}}</p>
                             <p class="text-muted"><i class="la la-envelope-o"></i> {{$application->email}}</p>
                             <p class="text-muted"><i class="la la-phone-square"></i> {{$application->phone_number}}</p>
@@ -47,7 +47,7 @@
             {!! $applications->links() !!}
 
         </div>
-    </div>
+    </div> 
 
 
 

@@ -1,3 +1,5 @@
+<!-- view này viết chung cho tất cả cá status của job -->
+
 @extends('layouts.dashboard')
 
 
@@ -26,9 +28,9 @@
                             <!--hiển thị status chấp nhận duyệt bài của admin -->
                             <td>
                                 {!! $job->status_context() !!}
-                                @if($job->is_premium)
+                                <!-- @if($job->is_premium)
                                     <p class="alert alert-success" data-toggle="tooltip" title="@lang('app.premium')"><i class="la la-bookmark-o"></i>@lang('app.premium')</p>
-                                @endif
+                                @endif -->
                             </td>
 
                             <td>{{$job->employer->company}}</td>

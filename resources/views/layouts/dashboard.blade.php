@@ -34,6 +34,9 @@
 $pendingJobCount = \App\Job::pending()->count();
 $approvedJobCount = \App\Job::approved()->count();
 $blockedJobCount = \App\Job::blocked()->count();
+$pendingJobApplicationCount = \App\JobApplication::pending()->count();
+$acceptJobApplicationCount = \App\JobApplication::accept()->count();
+$deniedJobApplicationCount = \App\JobApplication::denied()->count();
 $user = Auth::user();
 @endphp
 
@@ -100,12 +103,30 @@ $user = Auth::user();
                                 </a>
                             </li>
 
-                            <li class="{{request()->is('dashboard/u/applied-jobs*')? 'active' : ''}}">
+                            <!-- nếu là applicant thì mới hiển thị tag applied job -->
+                            @if($user->is_applicant())
+
+                            <li class="{{request()->is('dashboard//u/applied-jobs*')? 'active' : ''}}">
+                                <a href="#" class="list-group-item-action">
+                                    <span class="sidebar-icon"><i class="la la-briefcase"></i> </span>
+                                    <span class="title">@lang('app.applied_jobs')</span>
+                                    <span class="arrow"><i class="la la-arrow-right"></i> </span>
+                                </a>
+
+                                <ul class="dropdown-menu" style="display: none;">
+                                    <li><a class="sidebar-link" href="{{route('pending_appliedJobs')}}">@lang('app.pending') <span class="badge badge-success float-right">{{$pendingJobApplicationCount}}</span></a> </li>
+                                    <li><a class="sidebar-link" href="{{route('accept_appliedJobs')}}">Accept  <span class="badge badge-success float-right">{{$acceptJobApplicationCount}}</span> </a></li>
+                                    <li><a class="sidebar-link" href="{{route('denied_appliedJobs')}}">Denied <span class="badge badge-success float-right">{{$deniedJobApplicationCount}}</span> </a></li>
+                                </ul>
+                            </li>
+
+                            <!-- <li class="{{request()->is('dashboard/u/applied-jobs*')? 'active' : ''}}">
                                 <a href="{{route('applied_jobs')}}" class="list-group-item-action active">
                                     <span class="sidebar-icon"><i class="la la-list-alt"></i> </span>
                                     <span class="title">@lang('app.applied_jobs')</span>
                                 </a>
-                            </li>
+                            </li> -->
+                            @endif
 
                             @if($user->is_admin())
 
@@ -117,7 +138,7 @@ $user = Auth::user();
                             </li>
                             @endif
 
-                            @if( ! $user->is_user())
+                            @if(  $user->is_employer())
 
 
                             <li class="{{request()->is('dashboard/employer*')? 'active' : ''}}">
@@ -138,6 +159,8 @@ $user = Auth::user();
 
                             @endif
 
+                            <!-- nếu là admin thì hiển thị cái view này -->
+
                             @if($user->is_admin())
 
 
@@ -155,15 +178,15 @@ $user = Auth::user();
                                 </ul>
                             </li>
 
-                            <li class="{{request()->is('dashboard/flagged*')? 'active' : ''}}">
+                            <!-- <li class="{{request()->is('dashboard/flagged*')? 'active' : ''}}">
                                 <a href="{{route('flagged_jobs')}}" class="list-group-item-action active">
                                     <span class="sidebar-icon"><i class="la la-flag-o"></i> </span>
                                     <span class="title">@lang('app.flagged_jobs')</span>
                                 </a>
-                            </li>
+                            </li> -->
 
 
-                            <li class="{{request()->is('dashboard/cms*')? 'active' : ''}}">
+                            <!-- <li class="{{request()->is('dashboard/cms*')? 'active' : ''}}">
                                 <a href="#" class="list-group-item-action">
                                     <span class="sidebar-icon"><i class="la la-file-text-o"></i> </span>
                                     <span class="title">@lang('app.cms')</span>
@@ -174,7 +197,7 @@ $user = Auth::user();
                                     <li><a class="sidebar-link" href="{{route('pages')}}">@lang('app.pages')</a></li>
                                     <li><a class="sidebar-link" href="{{route('posts')}}">@lang('app.posts')</a></li>
                                 </ul>
-                            </li>
+                            </li> -->
 
 
                             <li class="{{request()->is('dashboard/settings*')? 'active' : ''}}">

@@ -61,9 +61,34 @@ class UserController extends Controller
         $title = __('app.applicant');
         $user_id = Auth::user()->id;
         $applications = JobApplication::whereUserId($user_id)->orderBy('id', 'desc')->paginate(20);
-
         return view('admin.applied_jobs', compact('title', 'applications'));
     }
+
+    public function pendingJobs(){
+        $title = __('app.applicant');
+        $user_id = Auth::user()->id;
+        $applications = JobApplication::pending()->orderBy('id', 'desc')->paginate(20);
+
+        return view('admin.appliedAll_jobs', compact('title', 'applications'));
+    }
+
+    public function acceptJobs(){
+        $title = __('app.applicant');
+        $user_id = Auth::user()->id;
+        $applications = JobApplication::accept()->orderBy('id', 'desc')->paginate(20);
+
+        return view('admin.appliedAll_jobs', compact('title', 'applications'));
+    }
+
+    public function deniedJobs(){
+        $title = __('app.applicant');
+        $user_id = Auth::user()->id;
+        $applications = JobApplication::denied()->orderBy('id', 'desc')->paginate(20);
+
+        return view('admin.appliedAll_jobs', compact('title', 'applications'));
+    }
+
+
 
     public function registerJobSeeker(){
         $title = __('app.register_job_seeker');

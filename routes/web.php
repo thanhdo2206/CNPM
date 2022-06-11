@@ -167,7 +167,13 @@ Route::group(['prefix'=>'dashboard', 'middleware' => 'dashboard'], function(){
     });
 
     Route::group(['prefix'=>'u'], function(){
-        Route::get('applied-jobs', 'UserController@appliedJobs')->name('applied_jobs');
+        // Route::get('applied-jobs', 'UserController@appliedJobs')->name('applied_jobs');
+        Route::group(['prefix'=>'applied-jobs'], function(){
+            Route::get('pending', 'UserController@pendingJobs')->name('pending_appliedJobs');
+            Route::get('accept', 'UserController@acceptJobs')->name('accept_appliedJobs');
+            Route::get('denied', 'UserController@deniedJobs')->name('denied_appliedJobs');
+           
+        });
         Route::get('profile', 'UserController@profile')->name('profile');
         Route::get('profile/edit', 'UserController@profileEdit')->name('profile_edit');
         Route::post('profile/edit', 'UserController@profileEditPost');
