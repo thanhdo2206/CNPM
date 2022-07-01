@@ -177,7 +177,7 @@ class JobController extends Controller
 
         if ($request->hasFile('resume')){
             $image = $request->file('resume');
-            $valid_extensions = ['pdf','doc','docx'];
+            $valid_extensions = ['pdf','doc','docx', 'jpg', 'png'];
             if ( ! in_array(strtolower($image->getClientOriginalExtension()), $valid_extensions) ){
                 session()->flash('job_validation_fails', true);
                 return redirect()->back()->withInput($request->input())->with('error', trans('app.resume_file_type_allowed_msg') ) ;
@@ -187,10 +187,10 @@ class JobController extends Controller
 
             $image_name = strtolower(time().str_random(5).'-'.str_slug($file_base_name)).'.' . $image->getClientOriginalExtension();
 
-            $imageFileName = 'uploads/resume/'.$image_name;
+            $imageFileName = '/'.$image_name;
             try{
                 //Upload original image
-                Storage::disk('public')->put($imageFileName, file_get_contents($image));
+                Storage::disk('local')->put($imageFileName, file_get_contents($image));
 
                 $job = Job::find($request->job_id);
 

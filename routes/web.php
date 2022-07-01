@@ -174,6 +174,9 @@ Route::group(['prefix'=>'dashboard', 'middleware' => 'dashboard'], function(){
             Route::get('denied', 'UserController@deniedJobs')->name('denied_appliedJobs');
            
         });
+
+        // Route::get('followed-jobs', 'UserController@followedJobs')->name('applied_jobs');
+
         Route::get('profile', 'UserController@profile')->name('profile');
         Route::get('profile/edit', 'UserController@profileEdit')->name('profile_edit');
         Route::post('profile/edit', 'UserController@profileEditPost');

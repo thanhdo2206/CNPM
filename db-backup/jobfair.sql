@@ -435,7 +435,7 @@ CREATE TABLE `job_applications` (
 --
 
 INSERT INTO `job_applications` (`id`, `job_id`, `employer_id`, `user_id`, `name`, `email`, `phone_number`, `message`, `resume`, `is_shortlisted`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 4, 'Jhony Deep', 'jhony@demo.com', '112234354', 'Please check my resume', '1543343268ixhnt-test-resume-file.docx', NULL, '2022-06-10 12:27:48', '2022-06-10 12:27:48');
+(1, 1, 2, 4, 'Jhony Deep', 'jhony@demo.com', '112234354', 'Please check my resume', '1543343268ixhnt-test-resume-file.docx', NULL, '2022-06-10 12:27:48', '2022-06-10 12:27:48');
 
 
 -- --------------------------------------------------------

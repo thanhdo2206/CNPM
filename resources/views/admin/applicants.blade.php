@@ -21,7 +21,8 @@
                                 <p class="text-muted"><i class="la la-clock-o"></i> {{$application->created_at->format(get_option('date_format'))}} {{$application->created_at->format(get_option('time_format'))}}</p>
                                 <p class="text-muted"><i class="la la-envelope-o"></i> {{$application->email}}</p>
                                 <p class="text-muted"><i class="la la-phone-square"></i> {{$application->phone_number}}</p>
-                                <a href=''><i class="la la-book"></i> View CV</a>
+                                <p class="text-muted"><i class="la la-phone-square"></i> {{$application->message}}</p>
+                                <a href='http://127.0.0.1:8000/{{$application->resume}}'><i class="la la-book"></i> View CV</a>
                             </td>
 
                             <td>

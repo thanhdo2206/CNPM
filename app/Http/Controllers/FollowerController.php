@@ -34,4 +34,6 @@ class FollowerController extends Controller
         }
 
     }
+
+    
 }
