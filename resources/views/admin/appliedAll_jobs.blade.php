@@ -25,7 +25,7 @@
                 </td>
 
                 <td>
-                    @if( ! empty($application->job->job_title))
+                    @if( !empty($application->job->job_title))
                     <p>
                         <a href="{{route('job_view', $application->job->job_slug)}}" target="_blank">{{$application->job->job_title}}</a>
                     </p>

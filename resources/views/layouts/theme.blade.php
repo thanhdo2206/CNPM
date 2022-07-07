@@ -53,7 +53,7 @@
                     @endif
 
 
-                    <li class="nav-item"><a class="nav-link" href="{{route('pricing')}}"><i class="la la-dollar"></i> @lang('app.pricing')</a> </li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="{{route('pricing')}}"><i class="la la-dollar"></i> @lang('app.pricing')</a> </li> -->
                     <li class="nav-item"><a class="nav-link" href="{{route('jobs_listing')}}"><i class="la la-briefcase"></i> @lang('app.jobs')</a> </li>
                     <li class="nav-item"><a class="nav-link" href="{{route('blog_index')}}"><i class="la la-file-o"></i> @lang('app.blog')</a> </li>
                     <li class="nav-item"><a class="nav-link" href="{{route('contact_us')}}"><i class="la la-envelope-o"></i> @lang('app.contact_us')</a> </li>
@@ -174,13 +174,13 @@
             </div>
 
 
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-md-12">
                     <div class="footer-copyright-text-wrap text-center mt-4">
                         <p>{!! get_text_tpl(get_option('copyright_text')) !!}</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
         </div>
 

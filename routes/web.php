@@ -175,7 +175,7 @@ Route::group(['prefix'=>'dashboard', 'middleware' => 'dashboard'], function(){
            
         });
 
-        // Route::get('followed-jobs', 'UserController@followedJobs')->name('applied_jobs');
+        Route::get('followed-jobs', 'FollowerController@followedJobs')->name('followed_jobs');
 
         Route::get('profile', 'UserController@profile')->name('profile');
         Route::get('profile/edit', 'UserController@profileEdit')->name('profile_edit');

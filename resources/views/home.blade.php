@@ -23,7 +23,7 @@
                             <div class="form-row">
                                 <div class="col-auto">
                                     <input type="text" name="q" class="form-control mb-2" style="min-width: 300px;" placeholder="@lang('app.job_title_placeholder')">
-                                    <input type="text" name="location" class="form-control" style="min-width: 300px;"  placeholder="@lang('app.job_location_placeholder')">
+                                    <!-- <input type="text" name="location" class="form-control" style="min-width: 300px;"  placeholder="@lang('app.job_location_placeholder')"> -->
                                     <button type="submit" class="btn btn-success mb-2"><i class="la la-search"></i> @lang('app.search') @lang('app.job')</button>
                                 </div>
                             </div>
@@ -41,7 +41,6 @@
     <!-- new job -->
     @if($regular_jobs->count())
         <div class="regular-jobs-wrap pb-5 pt-5">
-
             <div class="container">
                 <div class="regular-job-container p-3">
 
@@ -124,7 +123,7 @@
 
 
 
-    @if($premium_jobs->count())
+    <!-- @if($premium_jobs->count())
         <div class="premium-jobs-wrap pb-5 pt-5">
 
             <div class="container">
@@ -183,7 +182,7 @@
             </div>
 
         </div>
-    @endif
+    @endif -->
 
 
 

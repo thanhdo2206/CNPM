@@ -44,9 +44,9 @@
 
                         @if($job->employer->followable)
                             @if(auth()->check() && auth()->user()->isEmployerFollowed($job->employer->id))
-                                <button type="button" class="btn btn-success employer-follow-button" data-employer-id="{{$job->employer->id}}"><i class="la la-minus-circle"></i> @lang('app.unfollow') {{$employer->company}} </button>
+                                <button type="button" class="btn btn-success employer-follow-button" data-job-id="{{$job->id}}" data-employer-id="{{$job->employer->id}}"><i class="la la-minus-circle"></i> @lang('app.unfollow') {{$employer->company}} </button>
                             @else
-                                <button type="button" class="btn btn-success employer-follow-button" data-employer-id="{{$job->employer->id}}"><i class="la la-plus-circle"></i> @lang('app.follow') {{$employer->company}} </button>
+                                <button type="button" class="btn btn-success employer-follow-button" data-job-id="{{$job->id}}" data-employer-id="{{$job->employer->id}}"><i class="la la-plus-circle"></i> @lang('app.follow') {{$employer->company}} </button>
                             @endif
                         @endif
 
@@ -90,7 +90,7 @@
         <div class="row">
             <div class="col-md-8">
 
-                @include('admin.flash_msg')
+                <!-- @include('admin.flash_msg') -->
 
 
                 @if(! $job->is_active() && $job->can_edit())
@@ -356,7 +356,7 @@
 
                         <p><a href="javascript:;" data-toggle="modal" data-target="#shareByEMail"><i class="la la-envelope"></i> @lang('app.share_by_email') </a> </p>
                         <p><a href="{{route('jobs_by_employer', $job->employer->company_slug)}}"><i class="la la-list-ul"></i> @lang('app.check_all_job_employer') </a> </p>
-                        <p><a href="javascript:;" data-toggle="modal" data-target="#jobFlagModal"><i class="la la-flag" ></i> @lang('app.flag_this_job') </a> </p>
+                        <!-- <p><a href="javascript:;" data-toggle="modal" data-target="#jobFlagModal"><i class="la la-flag" ></i> @lang('app.flag_this_job') </a> </p> -->
 
                     </div>
                 </div>
@@ -400,19 +400,19 @@
 
                         <div class="form-group {{ $errors->has('name')? 'has-error':'' }}">
                             <label for="name" class="control-label">@lang('app.name'):</label>
-                            <input type="text" class="form-control {{e_form_invalid_class('name', $errors)}}" id="name" name="name" value="{{old('name')}}" placeholder="@lang('app.your_name')">
+                            <input type="text" class="form-control {{e_form_invalid_class('name', $errors)}}" id="name" name="name" value="{{$user->name}}" readonly placeholder="@lang('app.your_name')">
                             {!! e_form_error('name', $errors) !!}
                         </div>
 
                         <div class="form-group {{ $errors->has('email')? 'has-error':'' }}">
                             <label for="email" class="control-label">@lang('app.email'):</label>
-                            <input type="text" class="form-control {{e_form_invalid_class('email', $errors)}}" id="email" name="email" value="{{old('email')}}" placeholder="@lang('app.email_ie')">
+                            <input type="text" class="form-control {{e_form_invalid_class('email', $errors)}}" id="email" name="email" value="{{$user->email}}" readonly placeholder="@lang('app.email_ie')">
                             {!! e_form_error('email', $errors) !!}
                         </div>
 
                         <div class="form-group {{ $errors->has('phone_number')? 'has-error':'' }}">
                             <label for="phone_number" class="control-label">@lang('app.phone_number'):</label>
-                            <input type="text" class="form-control {{e_form_invalid_class('phone_number', $errors)}}" id="phone_number" name="phone_number" value="{{old('phone_number')}}" placeholder="@lang('app.phone_number')">
+                            <input type="text" class="form-control {{e_form_invalid_class('phone_number', $errors)}}" id="phone_number" name="phone_number" value="{{$user->phone}}" placeholder="@lang('app.phone_number')">
                             {!! e_form_error('phone_number', $errors) !!}
                         </div>
 
@@ -452,7 +452,7 @@
                 <form action="{{route('flag_job_post', $job->id)}}" method="post">
 
                     <div class="modal-header">
-                        <h5 class="modal-title" >@lang('app.flag_this_job')</h5>
+                        <!-- <h5 class="modal-title" >@lang('app.flag_this_job')</h5> -->
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -488,7 +488,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">@lang('app.close')</button>
-                        <button type="submit" class="btn btn-success"><i class="la la-flag-o"></i> @lang('app.flag_this_job')</button>
+                        <!-- <button type="submit" class="btn btn-success"><i class="la la-flag-o"></i> @lang('app.flag_this_job')</button> -->
                     </div>
                 </form>
 

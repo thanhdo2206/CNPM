@@ -74,9 +74,9 @@
                             <div class="col-md-6">
                                 <input type="number" class="form-control {{e_form_invalid_class('salary', $errors)}}" id="salary" value="{{ old('salary') }}" name="salary" placeholder="@lang('app.salary')">
                             </div>
-                            <div class="col-md-6">
+                            <!-- <div class="col-md-6">
                                 <label> <input type="checkbox" name="is_negotiable" value="1" {{checked('1', old('is_negotiable'))}}> @lang('app.is_negotiable')</label>
-                            </div>
+                            </div> -->
                         </div>
 
                         {!! e_form_error('salary', $errors) !!}
@@ -176,9 +176,9 @@
                             <div class="col-md-6">
                                 <input type="number" class="form-control {{e_form_invalid_class('experience_required_years', $errors)}}" id="experience_required_years" value="{{ old('experience_required_years') }}" name="experience_required_years" placeholder="@lang('app.experience_required_years')">
                             </div>
-                            <div class="col-md-6">
+                            <!-- <div class="col-md-6">
                                 <label> <input type="checkbox" name="experience_plus" value="1" {{checked('1', old('experience_plus'))}} > @lang('app.plus')</label>
-                            </div>
+                            </div> -->
                         </div>
 
                         {!! e_form_error('experience_required_years', $errors) !!}
@@ -270,10 +270,10 @@
                     </div>
                 </div> -->
 
-                <legend>@lang('app.job_location')</legend>
+                <!-- <legend>@lang('app.job_location')</legend> -->
 
 
-                <div class="form-group row {{ $errors->has('is_any_where')? 'has-error':'' }}">
+                <!-- <div class="form-group row {{ $errors->has('is_any_where')? 'has-error':'' }}">
                     <label for="is_any_where" class="col-md-4 control-label">{{ __('app.is_any_where') }} </label>
                     <div class="col-md-8">
                         <label> <input type="checkbox" name="is_any_where" value="1" {{checked('1', old('is_any_where'))}} > @lang('app.location_anywhere') </label>
@@ -311,7 +311,7 @@
                         </select>
                         {!! e_form_error('state', $errors) !!}
                     </div>
-                </div>
+                </div> -->
 
                 <!-- <div class="form-group row {{ $errors->has('city_name')? 'has-error':'' }}">
                     <label for="city_name" class="col-sm-4 control-label"> @lang('app.city_name')</label>

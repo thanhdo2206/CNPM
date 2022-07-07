@@ -27,17 +27,18 @@
         $('#shareByEMail').modal('show');
     }
 
-
+   
     $(document).on('click', '.employer-follow-button', function(e){
         e.preventDefault();
 
         var $that = $(this);
         var employer_id = $that.attr('data-employer-id');
-
+        var job_id = $that.attr('data-job-id');
+        console.log($that);
         $.ajax({
             type : 'POST',
             url : page_data.routes.follow_unfollow,
-            data : {employer_id : employer_id, _token : page_data.csrf_token},
+            data : {job_id: job_id, employer_id : employer_id, _token : page_data.csrf_token},
             beforeSend: function () {
                 $that.addClass('updating-btn');
             },
@@ -57,6 +58,37 @@
             }
         });
     });
+
+    // $(document).on('click', '.applicant-follow-button', function(e){
+    //     e.preventDefault();
+
+    //     var $that = $(this);
+    //     var employer_id = $that.attr('data-employer-id');
+    //     var job_id = $that.attr('data-job-id');
+    //     console.log($that);
+    //     $.ajax({
+    //         type : 'POST',
+    //         url : page_data.routes.follow_unfollow,
+    //         data : {job_id: job_id, employer_id : employer_id, _token : page_data.csrf_token},
+    //         beforeSend: function () {
+    //             $that.addClass('updating-btn');
+    //         },
+    //         success: function(data){
+    //             if (data.success){
+    //                 if(typeof data.btn_text !== 'undefined'){
+    //                     $that.html(data.btn_text);
+    //                 }
+    //             }else{
+    //                 if(typeof data.login_url !== 'undefined'){
+    //                     location.href = data.login_url;
+    //                 }
+    //             }
+    //         },
+    //         complete:function () {
+    //             $that.removeClass('updating-btn');
+    //         }
+    //     });
+    // });
 
     //updating-btn
 

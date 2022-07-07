@@ -5,12 +5,7 @@
 
     @if(auth()->user()->is_admin())
         <div class="row">
-            <div class="col-md-3">
-                <div class="p-3 mb-3 text-white bg-success">
-                    <h4>Users</h4>
-                    <h5>{{$usersCount}}</h5>
-                </div>
-            </div>
+           
 
             <!-- <div class="col-md-3">
                 <div class="p-3 mb-3 bg-warning">
@@ -25,6 +20,12 @@
                     <h5>{{$activeJobs}}</h5>
                 </div>
             </div>
+            <div class="col-md-3">
+                <div class="p-3 mb-3 text-white bg-primary">
+                    <h4>Pending Jobs</h4>
+                    <h5>{{$pendingJobs}}</h5>
+                </div>
+            </div>
 
             <div class="col-md-3">
                 <div class="p-3 mb-3 text-white bg-danger">
@@ -33,6 +34,12 @@
                 </div>
             </div>
 
+            <div class="col-md-3">
+                <div class="p-3 mb-3 text-white bg-success">
+                    <h4>Users</h4>
+                    <h5>{{$usersCount}}</h5>
+                </div>
+            </div>
             <div class="col-md-3">
                 <div class="p-3 mb-3 text-white bg-dark">
                     <h4>Employer</h4>

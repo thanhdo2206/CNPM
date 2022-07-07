@@ -228,7 +228,7 @@ return [
     'your_name'                         => 'Your name',
     'email_ie'                          => 'i.e. you@gmail.com',
     'resume'                            => 'Resume',
-    'resume_file_types'                 => 'File types: pdf,doc,docx',
+    'resume_file_types'                 => 'File types: pdf,doc,docx,jpg,png',
     'your_message'                      => 'Write your messgae here',
     'resume_file_type_allowed_msg'      => 'Only .pdf, .doc and .docx is allowed extension',
     'job_applied_success_msg'           => 'You have applied to this job success fully, employer will contact with you soon',

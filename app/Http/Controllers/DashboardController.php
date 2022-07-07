@@ -16,6 +16,7 @@ class DashboardController extends Controller
             'usersCount' => User::count(),
             'totalPayments' => Payment::success()->sum('amount'),
             'activeJobs' => Job::active()->count(),
+            'pendingJobs' => Job::count() - Job::active()->count(),
             'totalJobs' => Job::count(),
             'employerCount' => User::employer()->count(),
             'agentCount' => User::agent()->count(),

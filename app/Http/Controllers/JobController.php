@@ -85,7 +85,7 @@ class JobController extends Controller
             'benefits'                  => $request->benefits,
             'apply_instruction'         => $request->apply_instruction,
             'country_id'                => $request->country,
-            'country_name'              => $country->country_name,
+            // 'country_name'              => $country->country_name,
             'state_id'                  => $request->state,
             'state_name'                => $state_name,
             'city_name'                 => $request->city_name,
@@ -141,13 +141,13 @@ class JobController extends Controller
      */
     public function view($slug = null){
         $job = Job::whereJobSlug($slug)->first();
-
+        $user = Auth::user();
         if ( ! $slug || ! $job || (! $job->is_active() && ! $job->can_edit()) ){
             abort(404);
         }
 
         $title = $job->job_title;
-        return view('job-view', compact('title', 'job'));
+        return view('job-view', compact('title', 'job','user'));
     }
 
     /**

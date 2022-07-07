@@ -84,7 +84,7 @@
 
                         </div>
 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <p class="text-muted mb-1">@lang('app.country')</p>
 
                             <select name="country" class="form-control {{e_form_invalid_class('country', $errors)}} country_to_state">
@@ -93,10 +93,10 @@
                                     <option value="{!! $country->id !!}" @if(request('country') && $country->id == request('country')) selected="selected" @endif  >{!! $country->country_name !!}</option>
                                 @endforeach
                             </select>
-                        </div>
+                        </div> -->
 
 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <p class="text-muted mb-1">@lang('app.state')</p>
 
                             <select name="state" class="form-control {{e_form_invalid_class('state', $errors)}} state_options">
@@ -108,7 +108,7 @@
                                     @endforeach
                                 @endif
                             </select>
-                        </div>
+                        </div> -->
 
                         <div class="form-group">
                             <p class="text-muted mb-1">@lang('app.location')</p>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,21 +25,24 @@
 
     <script type='text/javascript'>
         /* <![CDATA[ */
-        var page_data = {!! pageJsonData() !!};
+        var page_data = {
+            !!pageJsonData() !!
+        };
         /* ]]> */
     </script>
 
 </head>
+
 <body>
-@php
-$pendingJobCount = \App\Job::pending()->count();
-$approvedJobCount = \App\Job::approved()->count();
-$blockedJobCount = \App\Job::blocked()->count();
-$pendingJobApplicationCount = \App\JobApplication::pending()->count();
-$acceptJobApplicationCount = \App\JobApplication::accept()->count();
-$deniedJobApplicationCount = \App\JobApplication::denied()->count();
-$user = Auth::user();
-@endphp
+    @php
+    $pendingJobCount = \App\Job::pending()->count();
+    $approvedJobCount = \App\Job::approved()->count();
+    $blockedJobCount = \App\Job::blocked()->count();
+    $pendingJobApplicationCount = \App\JobApplication::pending()->count();
+    $acceptJobApplicationCount = \App\JobApplication::accept()->count();
+    $deniedJobApplicationCount = \App\JobApplication::denied()->count();
+    $user = Auth::user();
+    @endphp
 
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
@@ -71,8 +75,7 @@ $user = Auth::user();
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
@@ -106,7 +109,16 @@ $user = Auth::user();
                             <!-- nếu là applicant thì mới hiển thị tag applied job -->
                             @if($user->is_applicant())
 
-                            <li class="{{request()->is('dashboard//u/applied-jobs*')? 'active' : ''}}">
+                            <li class="">
+                                <a href="{{route('followed_jobs')}}" class="list-group-item-action">
+                                    <span class="sidebar-icon"><i class="la la-plus-circle"></i> </span>
+
+                                    <span class="title">Followed Jobs</span>
+
+                                </a>
+                            </li>
+
+                            <li class="{{request()->is('dashboard/u/applied-jobs*')? 'active' : ''}}">
                                 <a href="#" class="list-group-item-action">
                                     <span class="sidebar-icon"><i class="la la-briefcase"></i> </span>
                                     <span class="title">@lang('app.applied_jobs')</span>
@@ -115,10 +127,12 @@ $user = Auth::user();
 
                                 <ul class="dropdown-menu" style="display: none;">
                                     <li><a class="sidebar-link" href="{{route('pending_appliedJobs')}}">@lang('app.pending') <span class="badge badge-success float-right">{{$pendingJobApplicationCount}}</span></a> </li>
-                                    <li><a class="sidebar-link" href="{{route('accept_appliedJobs')}}">Accept  <span class="badge badge-success float-right">{{$acceptJobApplicationCount}}</span> </a></li>
+                                    <li><a class="sidebar-link" href="{{route('accept_appliedJobs')}}">Accept <span class="badge badge-success float-right">{{$acceptJobApplicationCount}}</span> </a></li>
                                     <li><a class="sidebar-link" href="{{route('denied_appliedJobs')}}">Denied <span class="badge badge-success float-right">{{$deniedJobApplicationCount}}</span> </a></li>
                                 </ul>
                             </li>
+
+
 
                             <!-- <li class="{{request()->is('dashboard/u/applied-jobs*')? 'active' : ''}}">
                                 <a href="{{route('applied_jobs')}}" class="list-group-item-action active">
@@ -138,7 +152,7 @@ $user = Auth::user();
                             </li>
                             @endif
 
-                            @if(  $user->is_employer())
+                            @if( $user->is_employer())
 
 
                             <li class="{{request()->is('dashboard/employer*')? 'active' : ''}}">
@@ -152,7 +166,7 @@ $user = Auth::user();
                                     <li><a class="sidebar-link" href="{{route('post_new_job')}}">@lang('app.post_new_job')</a></li>
                                     <li><a class="sidebar-link" href="{{route('posted_jobs')}}">@lang('app.posted_jobs')</a></li>
                                     <li><a class="sidebar-link" href="{{route('employer_applicant')}}">@lang('app.applicants')</a></li>
-                                    <li><a class="sidebar-link" href="{{route('shortlisted_applicant')}}">@lang('app.shortlist')</a></li>
+                                    <!-- <li><a class="sidebar-link" href="{{route('shortlisted_applicant')}}">@lang('app.shortlist')</a></li> -->
                                     <li><a class="sidebar-link" href="{{route('employer_profile')}}">@lang('app.profile')</a></li>
                                 </ul>
                             </li>
@@ -173,8 +187,8 @@ $user = Auth::user();
 
                                 <ul class="dropdown-menu" style="display: none;">
                                     <li><a class="sidebar-link" href="{{route('pending_jobs')}}">@lang('app.pending') <span class="badge badge-success float-right">{{$pendingJobCount}}</span></a> </li>
-                                    <li><a class="sidebar-link" href="{{route('approved_jobs')}}">@lang('app.approved')  <span class="badge badge-success float-right">{{$approvedJobCount}}</span> </a></li>
-                                    <li><a class="sidebar-link" href="{{route('blocked_jobs')}}">@lang('app.blocked')  <span class="badge badge-success float-right">{{$blockedJobCount}}</span> </a></li>
+                                    <li><a class="sidebar-link" href="{{route('approved_jobs')}}">@lang('app.approved') <span class="badge badge-success float-right">{{$approvedJobCount}}</span> </a></li>
+                                    <li><a class="sidebar-link" href="{{route('blocked_jobs')}}">@lang('app.blocked') <span class="badge badge-success float-right">{{$blockedJobCount}}</span> </a></li>
                                 </ul>
                             </li>
 
@@ -228,9 +242,9 @@ $user = Auth::user();
                             {{--
                             <li>
                                 <a href="{{route('dashboard')}}" class="list-group-item-action active">
-                                    <span class="sidebar-icon"><i class="la la-user-secret"></i> </span>
-                                    <span class="title">@lang('app.administrator')</span>
-                                </a>
+                            <span class="sidebar-icon"><i class="la la-user-secret"></i> </span>
+                            <span class="title">@lang('app.administrator')</span>
+                            </a>
                             </li>
                             --}}
                             <li class="{{request()->is('dashboard/u/users*')? 'active' : ''}}">
@@ -258,8 +272,7 @@ $user = Auth::user();
                             </li>
 
                             <li>
-                                <a href="{{ route('logout') }}" class="list-group-item-action active"
-                                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <a href="{{ route('logout') }}" class="list-group-item-action active" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <span class="sidebar-icon"><i class="la la-sign-out"></i> </span>
                                     <span class="title">@lang('app.logout')</span>
                                 </a>
@@ -286,9 +299,9 @@ $user = Auth::user();
                             @yield('content')
                         </div>
 
-                        <div class="dashboard-footer mb-3">
+                        <!-- <div class="dashboard-footer mb-3">
                             <a href="" target="_blank">JobFair</a> Version {{config('app.version')}}
-                        </div>
+                        </div> -->
                     </div>
 
                 </div>
@@ -303,4 +316,5 @@ $user = Auth::user();
     <script src="{{ asset('assets/js/admin.js') }}" defer></script>
 
 </body>
+
 </html>
